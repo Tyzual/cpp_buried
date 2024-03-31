@@ -39,5 +39,6 @@ int main() {
   for (const auto &it : set) {
     std::cout << it << std::endl;
   }
+
   return 0;
 }

@@ -19,7 +19,6 @@ private:
   T *value_;
 };
 
-#if 0
 template <typename T> class DefrecenWrapper {
 public:
   DefrecenWrapper(T *v) : value_(v) {}
@@ -29,19 +28,16 @@ public:
 private:
   T *value_;
 };
-#endif
 
-// template <typename T> AssignWrapper<T> safeAssign(T *ptr) {
-//   return AssignWrapper<T>(ptr);
-// }
+template <typename T> DefrecenWrapper<T> safeAssignPtr(T *ptr) {
+  return DefrecenWrapper<T>(ptr);
+}
 
 int main() {
   int *ptr{new int()};
 
-  // AssignWrapper<int> w(ptr);
-  // w = 30;
+  *safeAssignPtr(ptr) = 40;
 
-  // safeAssign(ptr) = 40;
   delete ptr;
   return 0;
 }
